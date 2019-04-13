@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.ViewConfiguration;
 
 import com.stardust.autojs.core.inputevent.InputDevices;
@@ -49,7 +50,9 @@ public class RootAutomator {
     public RootAutomator(Context context) {
         mShell = new ProcessShell(true);
         String path = RootAutomatorEngine.getExecutablePath(context);
+        Log.e(LOG_TAG,path);
         String deviceNameOrPath = RootAutomatorEngine.getDeviceNameOrPath(context, InputDevices.getTouchDeviceName());
+        Log.e(LOG_TAG,deviceNameOrPath);
         mShell.exec("chmod 777 " + path);
         mShell.exec(path + " -d " + deviceNameOrPath);
     }

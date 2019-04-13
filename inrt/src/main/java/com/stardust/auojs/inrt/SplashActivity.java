@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
         setContentView(R.layout.activity_splash);
-        TextView slug = (TextView) findViewById(R.id.slug);
+        TextView slug = findViewById(R.id.slug);
         slug.setTypeface(Typeface.createFromAsset(getAssets(), "roboto_medium.ttf"));
         new Handler().postDelayed(this::main, 2500);
     }
